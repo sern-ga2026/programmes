@@ -854,56 +854,103 @@ function renderMissing(){
 // ═══════════════════════════════════════════════════════
 //  QR CAMERA
 // ═══════════════════════════════════════════════════════
-let stream=null, animFrame=null;
+let stream=null, animFrame=null, scanning=false;
+
 async function toggleCamera(){
   if(stream){stopCamera();return;}
-  try{
-    stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'},audio:false});
-    const video=document.getElementById('video');
-    video.srcObject=stream; await video.play();
-    document.getElementById('video-wrap').style.display='block';
-    document.getElementById('stop-btn').classList.remove('hidden');
-    document.getElementById('cam-btn').textContent='⏹ Ferma fotocamera';
-    scanLoop();
-  }catch(e){
-    let msg = '';
-    if(e.name==='NotAllowedError'||e.name==='PermissionDeniedError'){
-      msg = '📷 Permesso fotocamera negato.\n\nCome sbloccare:\n1. Tocca 🔒 nella barra indirizzi\n2. Fotocamera → Consenti\n3. Ricarica la pagina\n\nOppure: Impostazioni Chrome → Impostazioni sito → Fotocamera → Consenti per questo sito.';
-    } else if(e.name==='NotFoundError'){
-      msg = '📷 Nessuna fotocamera trovata sul dispositivo.';
-    } else if(location.protocol!=='https:'){
-      msg = '📷 La fotocamera richiede HTTPS.\nUsa l\'URL GitHub Pages (https://).';
-    } else {
-      msg = '📷 Fotocamera non disponibile: '+e.name+'\n'+e.message;
-    }
-    alert(msg);
+  const btn=document.getElementById('cam-btn');
+  btn.textContent='⏳ Apertura fotocamera...';
+  btn.disabled=true;
+
+  // Check jsQR loaded
+  if(typeof jsQR==='undefined'){
+    alert('Libreria QR non caricata. Controlla la connessione internet e ricarica.');
+    btn.textContent='📷 Avvia fotocamera QR'; btn.disabled=false; return;
   }
+
+  // Try back camera first, fall back to any camera
+  let constraints=[
+    {video:{facingMode:{exact:'environment'},width:{ideal:1280},height:{ideal:720}}},
+    {video:{facingMode:'environment'}},
+    {video:true}
+  ];
+
+  let gotStream=null;
+  for(let c of constraints){
+    try{ gotStream=await navigator.mediaDevices.getUserMedia(c); break; }
+    catch(e){ if(e.name==='NotAllowedError'||e.name==='NotFoundError') break; }
+  }
+
+  if(!gotStream){
+    btn.textContent='📷 Avvia fotocamera QR'; btn.disabled=false;
+    const isHTTP=location.protocol==='http:';
+    if(isHTTP) alert('⚠️ La fotocamera richiede HTTPS.\nApri la pagina tramite https://');
+    else alert('📷 Fotocamera non disponibile.\n\nSe hai negato il permesso:\n1. Tocca il lucchetto 🔒 nella barra indirizzi\n2. Fotocamera → Consenti\n3. Ricarica la pagina');
+    return;
+  }
+
+  stream=gotStream;
+  const video=document.getElementById('video');
+  video.srcObject=stream;
+
+  // Wait for video to be actually ready
+  await new Promise((resolve,reject)=>{
+    video.onloadedmetadata=()=>{ video.play().then(resolve).catch(reject); };
+    video.onerror=reject;
+    setTimeout(reject,8000); // 8s timeout
+  }).catch(err=>{
+    stopCamera();
+    alert('Errore avvio video: '+err);
+    return;
+  });
+
+  document.getElementById('video-wrap').style.display='block';
+  document.getElementById('stop-btn').classList.remove('hidden');
+  btn.textContent='⏹ Ferma fotocamera';
+  btn.disabled=false;
+  scanning=true;
+  requestAnimationFrame(scanLoop);
 }
+
 function stopCamera(){
-  if(stream){stream.getTracks().forEach(t=>t.stop());stream=null;}
+  scanning=false;
   if(animFrame){cancelAnimationFrame(animFrame);animFrame=null;}
+  if(stream){stream.getTracks().forEach(t=>{try{t.stop();}catch(e){}});stream=null;}
+  const video=document.getElementById('video');
+  video.srcObject=null;
   document.getElementById('video-wrap').style.display='none';
   document.getElementById('stop-btn').classList.add('hidden');
-  document.getElementById('cam-btn').textContent='📷 Avvia fotocamera QR';
+  const btn=document.getElementById('cam-btn');
+  btn.textContent='📷 Avvia fotocamera QR';
+  btn.disabled=false;
 }
+
 function scanLoop(){
+  if(!scanning||!stream) return;
   const video=document.getElementById('video');
-  const canvas=document.getElementById('canvas');
-  if(!stream||video.readyState<2){animFrame=requestAnimationFrame(scanLoop);return;}
-  canvas.width=video.videoWidth; canvas.height=video.videoHeight;
-  const ctx=canvas.getContext('2d');
-  ctx.drawImage(video,0,0,canvas.width,canvas.height);
-  const imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
-  const code=jsQR(imgData.data,imgData.width,imgData.height,{inversionAttempts:'dontInvert'});
-  if(code){
-    const m=code.data.match(/P(\d{3})/i);
-    if(m){
-      const pid='P'+m[1];
-      stopCamera();
-      showResult(pid);
-      return;
-    }
+  // Video must be playing and have dimensions
+  if(video.readyState<3||video.videoWidth===0){
+    animFrame=requestAnimationFrame(scanLoop); return;
   }
+  const canvas=document.getElementById('canvas');
+  if(canvas.width!==video.videoWidth){
+    canvas.width=video.videoWidth; canvas.height=video.videoHeight;
+  }
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  ctx.drawImage(video,0,0,canvas.width,canvas.height);
+  try{
+    const imgData=ctx.getImageData(0,0,canvas.width,canvas.height);
+    const code=jsQR(imgData.data,imgData.width,imgData.height,{inversionAttempts:'dontInvert'});
+    if(code&&code.data){
+      const m=code.data.match(/P(\d{3})/i);
+      if(m){
+        const pid='P'+m[1].padStart(3,'0');
+        stopCamera();
+        showResult(pid);
+        return;
+      }
+    }
+  }catch(e){}
   animFrame=requestAnimationFrame(scanLoop);
 }
 
