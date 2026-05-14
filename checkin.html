@@ -865,7 +865,19 @@ async function toggleCamera(){
     document.getElementById('stop-btn').classList.remove('hidden');
     document.getElementById('cam-btn').textContent='⏹ Ferma fotocamera';
     scanLoop();
-  }catch(e){alert('Fotocamera non disponibile: '+e.message);}
+  }catch(e){
+    let msg = '';
+    if(e.name==='NotAllowedError'||e.name==='PermissionDeniedError'){
+      msg = '📷 Permesso fotocamera negato.\n\nCome sbloccare:\n1. Tocca 🔒 nella barra indirizzi\n2. Fotocamera → Consenti\n3. Ricarica la pagina\n\nOppure: Impostazioni Chrome → Impostazioni sito → Fotocamera → Consenti per questo sito.';
+    } else if(e.name==='NotFoundError'){
+      msg = '📷 Nessuna fotocamera trovata sul dispositivo.';
+    } else if(location.protocol!=='https:'){
+      msg = '📷 La fotocamera richiede HTTPS.\nUsa l'URL GitHub Pages (https://).';
+    } else {
+      msg = '📷 Fotocamera non disponibile: '+e.name+'\n'+e.message;
+    }
+    alert(msg);
+  }
 }
 function stopCamera(){
   if(stream){stream.getTracks().forEach(t=>t.stop());stream=null;}
