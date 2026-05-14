@@ -872,7 +872,7 @@ async function toggleCamera(){
     } else if(e.name==='NotFoundError'){
       msg = '📷 Nessuna fotocamera trovata sul dispositivo.';
     } else if(location.protocol!=='https:'){
-      msg = '📷 La fotocamera richiede HTTPS.\nUsa l'URL GitHub Pages (https://).';
+      msg = '📷 La fotocamera richiede HTTPS.\nUsa l\'URL GitHub Pages (https://).';
     } else {
       msg = '📷 Fotocamera non disponibile: '+e.name+'\n'+e.message;
     }
