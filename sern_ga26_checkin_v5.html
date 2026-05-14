@@ -176,6 +176,12 @@ body{display:flex;flex-direction:column;align-items:center}
 .search-result-row:active{background:var(--gray-l)}
 
 .hidden{display:none!important}
+
+/* ── DEMO MODE ── */
+.demo-banner{background:#F5A623;color:white;text-align:center;font-size:12px;font-weight:700;
+  letter-spacing:.12em;padding:5px;flex-shrink:0}
+.demo-banner span{background:rgba(0,0,0,.15);padding:1px 8px;border-radius:10px;margin-left:6px;
+  font-size:10px;cursor:pointer}
 </style>
 </head>
 <body>
@@ -209,12 +215,16 @@ body{display:flex;flex-direction:column;align-items:center}
     <button class="pk" onclick="pinDel()" style="font-size:20px">⌫</button>
   </div>
   <div style="font-size:11px;color:var(--gray);text-align:center">
-    28–29 May 2026 · Trollhättan
+    28–29 May 2026 · Trollhättan<br><span style="color:var(--border)">Demo: 1234</span>
   </div>
 </div>
 
 <!-- ── STAFF APP ── -->
 <div id="staff-app" class="hidden" style="display:none;flex-direction:column;height:100vh">
+  <div class="demo-banner hidden" id="demo-banner">
+    ⚡ DEMO MODE — i dati non vengono salvati
+    <span onclick="resetDemo()">Reset ↺</span>
+  </div>
   <div class="topbar staff">
     <div class="tb-row1">
       <span class="tb-logo">SERN GA26 STAFF</span>
@@ -394,6 +404,7 @@ body{display:flex;flex-direction:column;align-items:center}
 //  CONFIG
 // ═══════════════════════════════════════════════════════
 const WEBHOOK_URL = ""; // ← incolla qui l'URL Power Automate dopo aver creato il flow
+let DEMO_MODE = false;
 
 // ═══════════════════════════════════════════════════════
 //  VOTER DATA
@@ -570,8 +581,22 @@ PARTICIPANTS.forEach(p=>pidMap[p.p]=p);
 // ═══════════════════════════════════════════════════════
 //  STATE (localStorage)
 // ═══════════════════════════════════════════════════════
-function getCheckins(){return JSON.parse(localStorage.getItem('ga26_checkins')||'{}')}
-function setCheckins(d){localStorage.setItem('ga26_checkins',JSON.stringify(d))}
+function getCheckins(){
+  const key = DEMO_MODE ? 'ga26_demo_checkins' : 'ga26_checkins';
+  return JSON.parse(localStorage.getItem(key)||'{}');
+}
+function setCheckins(d){
+  const key = DEMO_MODE ? 'ga26_demo_checkins' : 'ga26_checkins';
+  localStorage.setItem(key,JSON.stringify(d));
+}
+function resetDemo(){
+  if(!confirm('Cancellare tutti i check-in demo?')) return;
+  localStorage.removeItem('ga26_demo_checkins');
+  clearResult();
+  updateStats();
+  renderPresent();
+  renderMissing();
+}
 function getActivated(){return JSON.parse(localStorage.getItem('ga26_activated')||'[]')}
 function setActivated(d){localStorage.setItem('ga26_activated',JSON.stringify(d))}
 function getDelegations(){return JSON.parse(localStorage.getItem('ga26_delegations')||'[]')}
@@ -593,13 +618,30 @@ function updateDots(){
   for(let i=0;i<4;i++) document.getElementById('d'+i).classList.toggle('on',i<pinBuf.length);
 }
 function checkPin(){
-  if(pinBuf==="2026") showStaff();
+  if(pinBuf==="2026"){DEMO_MODE=false; showStaff();}
+  else if(pinBuf==="1234"){DEMO_MODE=true;  showStaff(); showDemoBanner();}
   else if(pinBuf==="9999") showAdmin();
   else if(pinBuf==="0000") showQuorum();
   else{
     document.getElementById('pin-err').textContent="PIN non corretto";
     pinBuf=""; updateDots();
   }
+}
+function showDemoBanner(){
+  document.getElementById('demo-banner').classList.remove('hidden');
+  // Pre-load some demo check-ins so the app looks "alive"
+  const demo = {
+    "P002":{"CHECKIN":"08:31","SEM2":"09:46"},
+    "P018":{"CHECKIN":"08:35","SEM3":"09:48","SCEN1_POL":"11:32"},
+    "P083":{"CHECKIN":"08:29","SEM1":"09:45","SCEN1_POL":"11:30"},
+    "P084":{"CHECKIN":"08:42","SEM2":"09:50","SCEN1_POL":"11:35"},
+    "P007":{"CHECKIN":"08:38","SCEN1_POL":"11:33"},
+    "P008":{"CHECKIN":"08:44","SEM1":"09:52","SCEN1_POL":"11:36"},
+    "P041":{"CHECKIN":"08:51","SEM1":"09:55"},
+    "P025":{"CHECKIN":"08:33","SEM2":"09:47"},
+  };
+  const existing = JSON.parse(localStorage.getItem('ga26_demo_checkins')||'{}');
+  if(!Object.keys(existing).length) localStorage.setItem('ga26_demo_checkins',JSON.stringify(demo));
 }
 function showStaff(){
   document.getElementById('pin-screen').style.display='none';
@@ -620,6 +662,8 @@ function showQuorum(){
 }
 function logout(){
   stopCamera();
+  DEMO_MODE=false;
+  document.getElementById('demo-banner').classList.add('hidden');
   pinBuf=""; updateDots();
   document.getElementById('pin-screen').style.display='flex';
   document.getElementById('staff-app').style.display='none';
