@@ -1131,7 +1131,14 @@ function renderAdminQuorum(){
   const reached=q.presentVotes>=q.quorumThreshold;
   document.getElementById('admin-quorum-content').innerHTML=`
     <div class="admin-card">
-      <div class="admin-card-title">Stato quorum live</div>
+      <div class="admin-card-title">
+        Stato quorum live
+        <button onclick="exportAttendanceRegister()" 
+          style="background:var(--red);color:white;border:none;padding:6px 12px;
+          border-radius:8px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit">
+          📄 Esporta Registro
+        </button>
+      </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;margin-bottom:12px">
         <div><div style="font-size:28px;font-weight:900;color:var(--blu)">${q.baseFees}</div><div style="font-size:10px;color:var(--gray)">BASE ELEGGIBILE</div></div>
         <div><div style="font-size:28px;font-weight:900;color:var(--pur)">${q.quorumThreshold}</div><div style="font-size:10px;color:var(--gray)">SOGLIA QUORUM</div></div>
@@ -1228,6 +1235,149 @@ function saveDeleg(){
   setDelegations(d);
   closeDelegModal();
   renderDelegations(); renderAdminQuorum();
+}
+
+// ── EXPORT ATTENDANCE REGISTER ──────────────────────────────────────────────
+function exportAttendanceRegister(){
+  const ci = getCheckins();
+  const activated = getActivated();
+  const delegations = getDelegations();
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('it-IT',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const timeStr = now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+
+  // All GA attendees
+  const gaPresent = PARTICIPANTS.filter(p => ci[p.p] && ci[p.p]['GA'])
+    .sort((a,b) => a.n.localeCompare(b.n));
+
+  // All voters (confirmed + activated)
+  const allVoters = [
+    ...VOTERS_CONFIRMED,
+    ...VOTERS_PENDING.filter(v => activated.includes(v.pid))
+  ];
+
+  // Voters present at GA
+  const votersPresent = allVoters.filter(v => ci[v.pid] && ci[v.pid]['GA']);
+  const votesPresent = votersPresent.reduce((s,v)=>s+v.votes,0)
+    + delegations.reduce((s,d)=>s+d.votes,0);
+  const {baseFees, quorumThreshold} = calcQuorum();
+  const reached = votesPresent >= quorumThreshold;
+
+  // CAT labels for the register
+  const CAT_REG = {
+    1:'Political Representative', 2:'Professional',
+    3:'Political Representative / Exec Board', 4:'Professional / Contact Person',
+    5:'GA Staff', 6:'Professional / Board of Auditors'
+  };
+
+  const rows = gaPresent.map((p,i) => {
+    const voter = allVoters.find(v=>v.pid===p.p);
+    const checkTime = ci[p.p]['GA'];
+    const deleg = delegations.filter(d=>d.toPid===p.p);
+    let votesCell = '';
+    if(voter) votesCell = `<strong>${voter.votes}</strong>`;
+    if(deleg.length) votesCell += deleg.map(d=>`<br><small>+${d.votes} (${d.fromOrg})</small>`).join('');
+    return `<tr>
+      <td style="text-align:center;color:#888">${i+1}</td>
+      <td><strong>${p.n}</strong><br><small style="color:#888">${p.p}</small></td>
+      <td>${p.o}</td>
+      <td style="text-align:center">${p.c==='IT'?'🇮🇹':'p.c'==='SE'?'🇸🇪':'${p.c}'}</td>
+      <td><span style="font-size:11px;background:${p.cat===1||p.cat===3?'#F5EAEA':p.cat===5?'#D4EDE0':'#E6F1FB'};
+        color:${p.cat===1||p.cat===3?'#7B1A1A':p.cat===5?'#1C5C35':'#0C447C'};
+        padding:2px 6px;border-radius:4px">${CAT_REG[p.cat]||''}</span></td>
+      <td style="text-align:center">${votesCell||'—'}</td>
+      <td style="text-align:center;color:#888;font-size:12px">${checkTime}</td>
+    </tr>`;
+  }).join('');
+
+  const win = window.open('','_blank');
+  win.document.write(`<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>SERN GA26 — Registro Presenze Assemblea</title>
+  <style>
+    @page{size:A4;margin:15mm 12mm}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,sans-serif;font-size:12px;color:#1A1A18}
+    .header{display:flex;align-items:flex-start;justify-content:space-between;
+      border-bottom:3px solid #7B1A1A;padding-bottom:10px;margin-bottom:14px}
+    .header-left h1{font-size:18px;color:#7B1A1A;font-weight:900;letter-spacing:.02em}
+    .header-left h2{font-size:13px;color:#444;font-weight:400;margin-top:3px}
+    .header-left p{font-size:11px;color:#888;margin-top:2px}
+    .quorum-box{border:2px solid ${reached?'#1C5C35':'#E8930A'};border-radius:8px;
+      padding:8px 14px;text-align:center;min-width:160px}
+    .quorum-status{font-size:15px;font-weight:900;color:${reached?'#1C5C35':'#E8930A'}}
+    .quorum-detail{font-size:10px;color:#888;margin-top:2px}
+    table{width:100%;border-collapse:collapse;margin-top:4px}
+    th{background:#7B1A1A;color:white;padding:6px 8px;text-align:left;font-size:11px}
+    td{padding:5px 8px;border-bottom:1px solid #eee;vertical-align:middle;font-size:11px}
+    tr:nth-child(even) td{background:#FAFAFA}
+    .footer{margin-top:20px;display:flex;justify-content:space-between;gap:20px}
+    .sig-box{flex:1;border-top:1px solid #1A1A18;padding-top:6px;font-size:10px;color:#888}
+    .summary-bar{display:flex;gap:16px;background:#F5F5F3;border-radius:8px;
+      padding:8px 14px;margin-bottom:12px;font-size:11px}
+    .sum-item{text-align:center}
+    .sum-num{font-size:20px;font-weight:900;color:#7B1A1A}
+    @media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+  </style></head><body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>SERN General Assembly 2026</h1>
+      <h2>Registro Presenze — Sessione Formale</h2>
+      <p>Trollhättan, 29 May 2026 &nbsp;·&nbsp; Lilla NOVA Arena &nbsp;·&nbsp; 16:00–18:00</p>
+      <p style="margin-top:4px;color:#888">Estratto il: ${dateStr} alle ${timeStr}</p>
+    </div>
+    <div class="quorum-box">
+      <div class="quorum-status">${reached?'✅ QUORUM RAGGIUNTO':'⚠️ QUORUM NON RAGGIUNTO'}</div>
+      <div class="quorum-detail">${votesPresent} / ${quorumThreshold} voti richiesti</div>
+      <div class="quorum-detail">Base eleggibile: ${baseFees} voti</div>
+    </div>
+  </div>
+
+  <div class="summary-bar">
+    <div class="sum-item"><div class="sum-num">${gaPresent.length}</div><div>Partecipanti presenti</div></div>
+    <div class="sum-item"><div class="sum-num">${votersPresent.length}</div><div>Votanti presenti</div></div>
+    <div class="sum-item"><div class="sum-num">${delegations.length}</div><div>Deleghe ricevute</div></div>
+    <div class="sum-item"><div class="sum-num" style="color:${reached?'#1C5C35':'#E8930A'}">${votesPresent}</div><div>Voti totali in sala</div></div>
+    <div class="sum-item"><div class="sum-num">${quorumThreshold}</div><div>Soglia quorum</div></div>
+  </div>
+
+  <table>
+    <thead><tr>
+      <th style="width:30px">#</th>
+      <th>Nome e Cognome</th>
+      <th>Organizzazione</th>
+      <th style="width:35px;text-align:center">P.</th>
+      <th>Categoria</th>
+      <th style="width:60px;text-align:center">Voti</th>
+      <th style="width:55px;text-align:center">Ora</th>
+    </tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+
+  ${delegations.length?`
+  <div style="margin-top:14px">
+    <div style="font-weight:700;font-size:11px;color:#3A1A6B;margin-bottom:6px">DELEGHE REGISTRATE</div>
+    <table>
+      <thead><tr>
+        <th>Organizzazione delegante</th><th>Delegato a</th><th style="width:60px">Voti</th>
+      </tr></thead>
+      <tbody>${delegations.map(d=>`<tr>
+        <td>${d.fromOrg}</td><td>${d.toName}</td>
+        <td style="text-align:center"><strong>${d.votes}</strong></td>
+      </tr>`).join('')}</tbody>
+    </table>
+  </div>`:''}
+
+  <div class="footer">
+    <div class="sig-box">Presidente dell'Assemblea<br><br><br></div>
+    <div class="sig-box">Segretario verbalizzante<br><br><br></div>
+    <div class="sig-box">Scrutatore<br><br><br></div>
+  </div>
+
+  <script>window.onload=()=>window.print();</script>
+  </body></html>`);
+  win.document.close();
 }
 
 // ── TEST WEBHOOK ────────────────────────────────────────────────────────────
