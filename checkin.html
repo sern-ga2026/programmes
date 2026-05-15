@@ -366,7 +366,19 @@ body{display:flex;flex-direction:column;align-items:center}
 
   <!-- QUORUM -->
   <div class="panel" id="a-quorum">
-    <div class="admin-section" id="admin-quorum-content"></div>
+    <div class="admin-section">
+      <div class="admin-card" style="border-color:var(--blu);background:var(--blu-l)">
+        <div class="admin-card-title" style="color:var(--blu)">🔌 Test Webhook</div>
+        <div style="font-size:12px;color:var(--text2);margin-bottom:10px">
+          Verifica che la connessione a Power Automate funzioni.
+        </div>
+        <button onclick="testWebhook()" class="cam-btn" style="margin-bottom:0;background:var(--blu)">
+          ▶ Invia ping di test
+        </button>
+        <div id="webhook-result" style="margin-top:10px;font-size:13px;min-height:20px"></div>
+      </div>
+      <div id="admin-quorum-content"></div>
+    </div>
   </div>
 </div>
 
@@ -403,7 +415,7 @@ body{display:flex;flex-direction:column;align-items:center}
 // ═══════════════════════════════════════════════════════
 //  CONFIG
 // ═══════════════════════════════════════════════════════
-const WEBHOOK_URL = "https://default27d8109b12614066badbab8867b147.c2.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f38bdac73abd40f88a72a170af125889/triggers/manual/paths/invoke?api-version=1"; // Power Automate — GA26 Check-in Webhook
+const WEBHOOK_URL = "https://default27d8109b12614066badbab8867b147.c2.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f38bdac73abd40f88a72a170af125889/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=93h3thWL3BeaqUZ6pdp39Oxn0Y_xmmOS4GaOXICok8g"; // Power Automate — GA26 Check-in Webhook
 let DEMO_MODE = false;
 
 // ═══════════════════════════════════════════════════════
@@ -803,11 +815,28 @@ function doCheckin(pid){
   ci[pid][currentActivity] = now;
   setCheckins(ci);
   updateStats();
-  // Webhook
+  // Webhook — fire and forget with fallback
   if(WEBHOOK_URL){
-    fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({participant_id:pid,activity:currentActivity,timestamp:new Date().toISOString()})
-    }).catch(()=>{});
+    const payload = JSON.stringify({
+      participant_id: pid,
+      activity: currentActivity,
+      timestamp: new Date().toISOString()
+    });
+    // Try with CORS, fallback to no-cors
+    fetch(WEBHOOK_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: payload
+    }).then(r=>{
+      if(r.ok) console.log('Webhook OK');
+      else console.warn('Webhook status:',r.status);
+    }).catch(()=>{
+      // CORS blocked — try no-cors (fire and forget, no response)
+      fetch(WEBHOOK_URL, {method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'text/plain'},
+        body: payload
+      }).catch(()=>{});
+    });
   }
   // Flash confirmation
   const btn = document.querySelector('.btn-checkin');
@@ -988,13 +1017,21 @@ function calcQuorum(){
 // ═══════════════════════════════════════════════════════
 function renderAdminVoters(){
   const ci=getCheckins();
-  const {presentVotes,quorumThreshold,baseFees}=calcQuorum();
-  document.getElementById('conf-summary').textContent=`${VOTERS_CONFIRMED.reduce((s,v)=>s+v.votes,0)} voti`;
-  document.getElementById('confirmed-voters-list').innerHTML=VOTERS_CONFIRMED.map(v=>{
+  const activated=getActivated();
+
+  // Combine confirmed + activated pending
+  const activatedVoters = VOTERS_PENDING.filter(v=>activated.includes(v.pid));
+  const allConfirmed = [...VOTERS_CONFIRMED, ...activatedVoters];
+  const totalVotes = allConfirmed.reduce((s,v)=>s+v.votes,0);
+
+  document.getElementById('conf-summary').textContent=`${allConfirmed.length} votanti · ${totalVotes} voti`;
+
+  document.getElementById('confirmed-voters-list').innerHTML=allConfirmed.map(v=>{
     const present=ci[v.pid]&&ci[v.pid]['GA'];
-    return`<div class="voter-row">
-      <div>
-        <div class="voter-org">${v.name}</div>
+    const isNew=activatedVoters.some(av=>av.pid===v.pid); // just activated
+    return`<div class="voter-row" style="${isNew?'background:#E8F5EE;border-radius:8px;padding:6px 4px;':''}">
+      <div style="flex:1">
+        <div class="voter-org">${v.name} ${isNew?'<span style="font-size:10px;background:var(--grn);color:white;padding:1px 6px;border-radius:10px;margin-left:4px">NUOVO</span>':''}</div>
         <div class="voter-sub">${v.org} · ${v.country}</div>
       </div>
       <span class="votes-badge${present?'':' inactive'}">${v.votes}v</span>
@@ -1005,27 +1042,61 @@ function renderAdminVoters(){
 
 function renderPending(){
   const activated=getActivated();
-  document.getElementById('pending-voters-list').innerHTML=VOTERS_PENDING.map(v=>{
-    const isActive=activated.includes(v.pid);
-    return`<div class="voter-row">
-      <div style="flex:1">
-        <div class="voter-org">${v.name}</div>
-        <div class="voter-sub">${v.org} · ${v.country} · ${v.votes} voti</div>
-      </div>
-      <button class="toggle-btn ${isActive?'activated':'activate'}"
-        onclick="togglePending('${v.pid}')">
-        ${isActive?'✓ Attivo':'Attiva'}
-      </button>
+  const pending=VOTERS_PENDING.filter(v=>!activated.includes(v.pid));
+  const done=VOTERS_PENDING.filter(v=>activated.includes(v.pid));
+
+  let html='';
+
+  if(pending.length){
+    html+=pending.map(v=>`
+      <div class="voter-row">
+        <div style="flex:1">
+          <div class="voter-org">${v.name}</div>
+          <div class="voter-sub">${v.org} · ${v.country} · ${v.votes} voti</div>
+        </div>
+        <button class="toggle-btn activate" onclick="togglePending('${v.pid}')">
+          ✓ Quota pagata
+        </button>
+      </div>`).join('');
+  } else {
+    html+='<div style="font-size:13px;color:var(--grn);padding:8px 0">✅ Tutti i pagamenti confermati</div>';
+  }
+
+  if(done.length){
+    html+=`<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">
+      <div style="font-size:11px;color:var(--gray);margin-bottom:6px">SPOSTATI NEI CONFERMATI</div>
+      ${done.map(v=>`
+        <div class="voter-row" style="opacity:.6">
+          <div style="flex:1">
+            <div class="voter-org">✅ ${v.name}</div>
+            <div class="voter-sub">${v.org} · ${v.votes} voti</div>
+          </div>
+          <button class="toggle-btn" style="background:#fee;color:var(--red);font-size:11px"
+            onclick="togglePending('${v.pid}')">Annulla</button>
+        </div>`).join('')}
     </div>`;
-  }).join('');
+  }
+
+  document.getElementById('pending-voters-list').innerHTML=html;
 }
 
 function togglePending(pid){
   let act=getActivated();
-  if(act.includes(pid)) act=act.filter(x=>x!==pid);
+  const wasActive=act.includes(pid);
+  if(wasActive) act=act.filter(x=>x!==pid);
   else act.push(pid);
   setActivated(act);
   renderPending(); renderAdminQuorum(); renderAdminVoters();
+
+  // If just activated → switch to Votanti tab to show the new entry
+  if(!wasActive){
+    switchAdminTab('a-voters');
+    // Flash the confirmed card
+    setTimeout(()=>{
+      const rows=document.querySelectorAll('#confirmed-voters-list .voter-row');
+      if(rows.length) rows[rows.length-1].scrollIntoView({behavior:'smooth',block:'nearest'});
+    },100);
+  }
 }
 
 function renderDelegations(){
@@ -1157,6 +1228,45 @@ function saveDeleg(){
   setDelegations(d);
   closeDelegModal();
   renderDelegations(); renderAdminQuorum();
+}
+
+// ── TEST WEBHOOK ────────────────────────────────────────────────────────────
+async function testWebhook(){
+  const el = document.getElementById('webhook-result');
+  if(!WEBHOOK_URL){
+    el.innerHTML='<span style="color:var(--red)">✗ WEBHOOK_URL non configurato</span>'; return;
+  }
+  el.innerHTML='<span style="color:var(--gray)">⏳ Invio in corso...</span>';
+  const payload = JSON.stringify({
+    participant_id:"TEST",
+    activity:"WEBHOOK_TEST",
+    timestamp: new Date().toISOString()
+  });
+  try{
+    const r = await fetch(WEBHOOK_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: payload
+    });
+    if(r.ok||r.status===202){
+      el.innerHTML='<span style="color:var(--grn)">✅ Webhook risponde! (status '+r.status+') — controlla Excel su Teams</span>';
+    } else {
+      el.innerHTML='<span style="color:var(--amb)">⚠️ Status '+r.status+' — potrebbe funzionare lo stesso, controlla Excel</span>';
+    }
+  }catch(err){
+    if(err.message.includes('CORS')||err.message.includes('fetch')){
+      // Try no-cors
+      try{
+        await fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',
+          headers:{'Content-Type':'text/plain'},body:payload});
+        el.innerHTML='<span style="color:var(--amb)">⚠️ Inviato (no-cors) — verifica se arriva riga in Excel su Teams</span>';
+      }catch(e2){
+        el.innerHTML='<span style="color:var(--red)">✗ Errore: '+e2.message+'</span>';
+      }
+    } else {
+      el.innerHTML='<span style="color:var(--red)">✗ '+err.message+'</span>';
+    }
+  }
 }
 
 // Close modal on overlay click
