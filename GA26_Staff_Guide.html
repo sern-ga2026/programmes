@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SERN GA26 — Staff Guide</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap');
+
+:root{
+  --red:#7B1A1A; --red-l:#F5EAEA; --red-m:#C94444;
+  --grn:#1C5C35; --grn-l:#D4EDE0;
+  --blu:#0C447C; --blu-l:#E6F1FB;
+  --pur:#3A1A6B; --pur-l:#F0EBF8;
+  --amb:#E8930A; --amb-l:#FEF3E2;
+  --dark:#1A1A18; --gray:#888; --border:#E0DDD8;
+  --bg:#FAF7F2;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--dark);font-size:15px;line-height:1.6}
+
+/* ── HEADER ── */
+.hero{background:var(--red);color:white;padding:40px 32px 32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-60px;top:-60px;width:300px;height:300px;
+  border-radius:50%;background:rgba(255,255,255,.05)}
+.hero::after{content:'';position:absolute;right:40px;bottom:-80px;width:180px;height:180px;
+  border-radius:50%;background:rgba(255,255,255,.04)}
+.hero-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:900;
+  line-height:1;letter-spacing:.01em;margin-bottom:6px}
+.hero-sub{font-size:15px;opacity:.8;margin-bottom:20px}
+.hero-pins{display:flex;flex-wrap:wrap;gap:8px}
+.pin-chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  border-radius:8px;padding:8px 14px;font-family:'Barlow Condensed',sans-serif;
+  font-size:15px;font-weight:600}
+.pin-chip span{font-size:20px;font-weight:900;margin-right:6px;letter-spacing:.05em}
+
+/* ── MAIN ── */
+.container{max-width:700px;margin:0 auto;padding:24px 20px 60px}
+
+/* ── SECTIONS ── */
+.section{margin-bottom:32px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  padding-bottom:10px;border-bottom:2px solid var(--border)}
+.section-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:15px;
+  font-weight:900;color:white;flex-shrink:0}
+.section h2{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;
+  letter-spacing:.02em;text-transform:uppercase}
+
+/* ── STEPS ── */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:14px;align-items:flex-start;background:white;
+  border-radius:10px;padding:14px 16px;border:1px solid var(--border)}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:13px;
+  font-weight:900;color:white;flex-shrink:0;margin-top:1px}
+.step-body{flex:1}
+.step-title{font-weight:600;font-size:15px;margin-bottom:2px}
+.step-desc{font-size:13px;color:var(--gray);line-height:1.5}
+.step-desc strong{color:var(--dark)}
+
+/* ── CARDS ── */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:white;border-radius:10px;padding:14px 16px;border:1px solid var(--border)}
+.card-icon{font-size:24px;margin-bottom:8px}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.card-desc{font-size:12px;color:var(--gray);line-height:1.5}
+
+/* ── ALERT BOXES ── */
+.alert{border-radius:10px;padding:14px 16px;margin-bottom:12px;
+  display:flex;gap:12px;align-items:flex-start}
+.alert-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.alert-body{font-size:13px;line-height:1.6}
+.alert-body strong{display:block;font-size:14px;margin-bottom:3px}
+.alert.red{background:var(--red-l);border-left:3px solid var(--red)}
+.alert.grn{background:var(--grn-l);border-left:3px solid var(--grn)}
+.alert.amb{background:var(--amb-l);border-left:3px solid var(--amb)}
+.alert.blu{background:var(--blu-l);border-left:3px solid var(--blu)}
+.alert.pur{background:var(--pur-l);border-left:3px solid var(--pur)}
+
+/* ── PILL TABLE ── */
+.pill-table{width:100%;border-collapse:collapse}
+.pill-table th{background:var(--dark);color:white;padding:8px 12px;text-align:left;
+  font-size:12px;font-weight:600;font-family:'Barlow Condensed',sans-serif;
+  letter-spacing:.08em;text-transform:uppercase}
+.pill-table td{padding:8px 12px;border-bottom:1px solid var(--border);font-size:13px;
+  vertical-align:middle}
+.pill-table tr:last-child td{border-bottom:none}
+.pill-table tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700}
+
+/* ── DIETARY ── */
+.diet-pill{background:var(--amb-l);color:#7B3800;border:1px solid #F5C87A;
+  padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;display:inline-block}
+
+/* ── PIN DISPLAY ── */
+.pin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.pin-card{background:white;border-radius:10px;padding:16px;border:1px solid var(--border);
+  border-top:3px solid}
+.pin-code{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;
+  letter-spacing:.1em;margin-bottom:4px}
+.pin-name{font-size:13px;font-weight:600;margin-bottom:4px}
+.pin-desc{font-size:12px;color:var(--gray)}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;
+  width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:16px}
+.tl-item::before{content:'';position:absolute;left:-20px;top:6px;width:10px;height:10px;
+  border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px var(--border)}
+.tl-time{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  color:var(--gray);letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
+.tl-text{font-size:14px;font-weight:500}
+.tl-sub{font-size:12px;color:var(--gray)}
+
+/* ── QR DEMO ── */
+.qr-demo{background:white;border:2px solid var(--border);border-radius:12px;
+  padding:20px;display:flex;gap:20px;align-items:center}
+.qr-box{width:80px;height:80px;border:3px solid var(--red);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:40px}
+.qr-info h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.qr-info p{font-size:13px;color:var(--gray)}
+
+/* ── FOOTER ── */
+.footer{text-align:center;padding:24px;font-size:12px;color:var(--gray);
+  border-top:1px solid var(--border);margin-top:40px}
+.footer strong{color:var(--dark)}
+
+@media print{
+  body{font-size:12px}
+  .hero{padding:24px}
+  .hero h1{font-size:32px}
+  .container{padding:16px}
+  .section{margin-bottom:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">SERN General Assembly 2026 · Trollhättan · 28–29 May</div>
+  <h1>Staff Check-in Guide</h1>
+  <div class="hero-sub">Everything you need to run registrations and the formal Assembly</div>
+  <div class="hero-pins">
+    <div class="pin-chip"><span>2026</span>Staff check-in</div>
+    <div class="pin-chip"><span>0000</span>Quorum display</div>
+    <div class="pin-chip"><span>1234</span>Demo / test</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 1. GETTING STARTED -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--red)">1</div>
+    <h2>Getting Started</h2>
+  </div>
+
+  <div class="alert blu">
+    <div class="alert-icon">📱</div>
+    <div class="alert-body">
+      <strong>Open the app on your Android phone</strong>
+      Go to <strong>sern-ga2026.github.io/programmes/checkin.html</strong> in Chrome.
+      For quick access: tap ⋮ → <em>Add to Home Screen</em> to install as an app icon.
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" style="background:var(--red)">1</div>
+      <div class="step-body">
+        <div class="step-title">Enter PIN 2026</div>
+        <div class="step-desc">The 4-digit code unlocks the staff check-in view. Tap the numbers on screen.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--red)">2</div>
+      <div class="step-body">
+        <div class="step-title">Select the current activity</div>
+        <div class="step-desc">Use the dropdown at the top to choose the session or meal you are managing.
+          The counter shows how many participants are expected vs. arrived.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--red)">3</div>
+      <div class="step-body">
+        <div class="step-title">Scan the badge QR or search by name</div>
+        <div class="step-desc">Tap <strong>📷 Avvia fotocamera QR</strong> and point at the badge.
+          Or type the participant's name in the search box.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--red)">4</div>
+      <div class="step-body">
+        <div class="step-title">Confirm check-in</div>
+        <div class="step-desc">The participant card appears. Tap <strong>✓ Check-in</strong> to confirm.
+          The counter updates instantly.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. QR SCANNING -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--red)">2</div>
+    <h2>Scanning Badges</h2>
+  </div>
+
+  <div class="qr-demo">
+    <div class="qr-box">▦</div>
+    <div class="qr-info">
+      <h3>Each badge has a unique QR code</h3>
+      <p>Point the camera at the QR — it reads automatically without pressing anything.
+         The participant card appears within 1–2 seconds.</p>
+      <p style="margin-top:6px">The same QR links to the participant's personal programme page.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:12px">
+    <div class="alert amb">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-body">
+        <strong>Camera not working?</strong>
+        Tap the 🔒 lock icon in Chrome's address bar → Camera → Allow → Reload the page.
+        The app requires HTTPS (GitHub Pages URL) for the camera to work.
+      </div>
+    </div>
+    <div class="alert grn">
+      <div class="alert-icon">💡</div>
+      <div class="alert-body">
+        <strong>No camera available?</strong>
+        Use the search box — type the first letters of the name or the P-ID (e.g. P042).
+        Tap the name in results to open the card, then tap Check-in.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. PARTICIPANT CARD -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--red)">3</div>
+    <h2>Reading the Participant Card</h2>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" style="background:var(--blu)">🗳</div>
+      <div class="step-body">
+        <div class="step-title">Blue "Votante" badge</div>
+        <div class="step-desc">This person is a <strong>designated voter</strong> for the formal Assembly.
+          The number shows how many votes they carry. Note this during GA check-in.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--amb)">🍽️</div>
+      <div class="step-body">
+        <div class="step-title">Orange "Dietary" badge</div>
+        <div class="step-desc">This participant has a <strong>dietary restriction</strong>.
+          Tap the badge to see the details. At meals a full banner appears automatically.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--amb)">⚠️</div>
+      <div class="step-body">
+        <div class="step-title">Yellow warning</div>
+        <div class="step-desc">The participant is <strong>not assigned</strong> to the current activity.
+          You can still check them in — use your judgement.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--grn)">✓</div>
+      <div class="step-body">
+        <div class="step-title">Green "Già registrato" button</div>
+        <div class="step-desc">Person was already checked in. You can re-confirm — the timestamp updates.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. TABS -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--red)">4</div>
+    <h2>Tabs — Presenti &amp; Attesi</h2>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">✅</div>
+      <div class="card-title">Presenti</div>
+      <div class="card-desc">Everyone checked in so far for the selected activity, with their check-in time.</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⏳</div>
+      <div class="card-title">Attesi / Mancanti</div>
+      <div class="card-desc">Expected participants who have not arrived yet.
+        Tap a name to jump straight to their check-in card.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. DIETARY AT MEALS -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--amb)">5</div>
+    <h2>Dietary Restrictions at Meals</h2>
+  </div>
+
+  <p style="font-size:14px;margin-bottom:12px">
+    At lunches and dinners, a <strong style="color:#7B3800">full orange banner</strong> appears
+    automatically when you check in a participant with a restriction.
+    No need to tap anything — it's always visible.
+  </p>
+
+  <table class="pill-table" style="margin-bottom:12px">
+    <thead><tr><th>Participant</th><th>Restriction</th></tr></thead>
+    <tbody>
+      <tr><td>Lotta Åberg (P006)</td><td><span class="diet-pill">Gluten free, no scampi</span></td></tr>
+      <tr><td>Linnea Jägestedt (P007)</td><td><span class="diet-pill">Pescetarian</span></td></tr>
+      <tr><td>Susanna Radovanovic (P011)</td><td><span class="diet-pill">No fish and seafood</span></td></tr>
+      <tr><td>Ida Aronsson Hammar (P014)</td><td><span class="diet-pill">No milk protein</span></td></tr>
+      <tr><td>Catherine Stolfer Suneson (P021)</td><td><span class="diet-pill">Gluten &amp; lactose intolerance</span></td></tr>
+      <tr><td>Irma Görtz (P028)</td><td><span class="diet-pill">Gluten free, no sugar</span></td></tr>
+      <tr><td>Johanna Berg Meneghini (P042)</td><td><span class="diet-pill">Lactose free</span></td></tr>
+      <tr><td>Federica Gravina (P047)</td><td><span class="diet-pill">Lactose free, no raw food</span></td></tr>
+      <tr><td>Sofe Sefaj (P051)</td><td><span class="diet-pill">Pescetarian, no alcohol</span></td></tr>
+      <tr><td>Claudia Canè (P054)</td><td><span class="diet-pill">No beans, cabbage, cucumber, beets</span></td></tr>
+      <tr><td>Carina Krii (P071)</td><td><span class="diet-pill">Vegetarian</span></td></tr>
+      <tr><td>Peter Eriksson (P091)</td><td><span class="diet-pill">No nuts, no strawberries</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--gray)">Full list visible in the app — these are the most critical restrictions.</p>
+</div>
+
+<!-- 6. FORMAL GA -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--pur)">6</div>
+    <h2>Formal General Assembly (16:00 Fri)</h2>
+  </div>
+
+  <div class="alert pur">
+    <div class="alert-icon">⚖️</div>
+    <div class="alert-body">
+      <strong>Select activity: "⚖ Assemblea Generale Formale"</strong>
+      Check in each participant as they enter the room. Voting members are highlighted with a blue badge.
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" style="background:var(--pur)">1</div>
+      <div class="step-body">
+        <div class="step-title">Staff scans all participants at the door</div>
+        <div class="step-desc">Use PIN 2026 → select "Assemblea Generale Formale" → scan badges.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--pur)">2</div>
+      <div class="step-body">
+        <div class="step-title">Project the quorum screen</div>
+        <div class="step-desc">On a tablet or laptop connected to the projector, open the app
+          and enter PIN <strong>0000</strong>. The quorum display auto-refreshes every 30 seconds
+          and shows <strong>✅ QUORUM REACHED</strong> when the threshold is met.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:var(--pur)">3</div>
+      <div class="step-body">
+        <div class="step-title">Attendance register</div>
+        <div class="step-desc">The SERN Secretariat will manage the official register
+          and export it at the end of the session. Your role is to check in participants
+          at the door using PIN 2026.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. ADMIN PANEL -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--pur)">7</div>
+    <h2>Admin Panel (Secretariat only — PIN 9999)</h2>
+  </div>
+
+  <div class="pin-grid">
+    <div class="pin-card" style="border-top-color:var(--grn)">
+      <div class="card-icon">✅</div>
+      <div class="pin-name" style="color:var(--grn)">Tab: Votanti</div>
+      <div class="pin-desc">Confirmed voters + fee-paid members. Shows who is present at the GA.</div>
+    </div>
+    <div class="pin-card" style="border-top-color:var(--amb)">
+      <div class="card-icon">⏳</div>
+      <div class="pin-name" style="color:var(--amb)">Tab: In attesa</div>
+      <div class="pin-desc">Members whose fee payment is pending. Tap <em>"✓ Quota pagata"</em> when confirmed.</div>
+    </div>
+    <div class="pin-card" style="border-top-color:var(--pur)">
+      <div class="card-icon">📋</div>
+      <div class="pin-name" style="color:var(--pur)">Tab: Deleghe</div>
+      <div class="pin-desc">Register proxy votes from absent organisations. Tap <em>+ Aggiungi</em>.</div>
+    </div>
+    <div class="pin-card" style="border-top-color:var(--red)">
+      <div class="card-icon">⚖️</div>
+      <div class="pin-name" style="color:var(--red)">Tab: Quorum</div>
+      <div class="pin-desc">Live vote count, export register, test webhook, reset check-in data.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. PROGRAMME -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--dark)">7</div>
+    <h2>Day-by-Day Schedule</h2>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+        text-transform:uppercase;letter-spacing:.1em;color:var(--gray);margin-bottom:10px">
+        Thursday 28 May
+      </div>
+      <div class="timeline">
+        <div class="tl-item" style="--dot:var(--red)"><div class="tl-item::before" style="background:var(--red)"></div>
+          <div class="tl-time">08:10</div><div class="tl-text">Bus from Scandic Swania</div>
+        </div>
+        <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-text">Registration</div><div class="tl-sub">📋 CHECKIN activity</div></div>
+        <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-text">Plenary Opening</div></div>
+        <div class="tl-item"><div class="tl-time">09:45</div><div class="tl-text">Parallel Seminars</div><div class="tl-sub">SEM1 / SEM2 / SEM3</div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-text">Scenario Sessions I</div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-text">Lunch at NOVA</div><div class="tl-sub">🍽️ LUNCH_THU</div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-text">Study Visits</div><div class="tl-sub">PTC / T-Eng / KLC</div></div>
+        <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-text">Executive Board</div></div>
+        <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-text">Bus Tour</div></div>
+        <div class="tl-item"><div class="tl-time">19:30</div><div class="tl-text">Dinner — NEVS Hall</div><div class="tl-sub">🍽️ DINNER_THU</div></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+        text-transform:uppercase;letter-spacing:.1em;color:var(--gray);margin-bottom:10px">
+        Friday 29 May
+      </div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-text">Scenario Sessions II</div></div>
+        <div class="tl-item"><div class="tl-time">11:30</div><div class="tl-text">Parallel Sessions</div><div class="tl-sub">Showcase / Procurement / Secretariat</div></div>
+        <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-text">Lunch at NOVA</div><div class="tl-sub">🍽️ LUNCH_FRI</div></div>
+        <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-text">Study Visit — Insikten</div></div>
+        <div class="tl-item" style="font-weight:600"><div class="tl-time">16:00</div>
+          <div class="tl-text" style="color:var(--pur);font-weight:700">⚖ Formal GA</div>
+          <div class="tl-sub">Quorum screen on projector</div>
+        </div>
+        <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-text">Dinner — Alberts</div><div class="tl-sub">🍽️ DINNER_FRI</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. TROUBLESHOOTING -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--dark)">8</div>
+    <h2>Troubleshooting</h2>
+  </div>
+
+  <div class="alert amb">
+    <div class="alert-icon">📷</div>
+    <div class="alert-body">
+      <strong>Camera permission denied</strong>
+      Tap 🔒 in Chrome address bar → Camera → Allow → Reload. Must be on the https:// URL.
+    </div>
+  </div>
+  <div class="alert amb">
+    <div class="alert-icon">🔍</div>
+    <div class="alert-body">
+      <strong>Participant not found by QR</strong>
+      Use the name search instead. If still not found, check the P-ID on the badge and search that.
+    </div>
+  </div>
+  <div class="alert amb">
+    <div class="alert-icon">📵</div>
+    <div class="alert-body">
+      <strong>No internet connection</strong>
+      The app works offline using cached data. Check-ins are saved locally and sync when back online.
+    </div>
+  </div>
+  <div class="alert red">
+    <div class="alert-icon">🗑</div>
+    <div class="alert-body">
+      <strong>Need to reset test data before the event</strong>
+      Contact the SERN Secretariat to reset the data before the event. Requires double confirmation.
+      Do this only during setup — never during the live event.
+    </div>
+  </div>
+</div>
+
+</div><!-- .container -->
+
+<div class="footer">
+  <strong>SERN General Assembly 2026 · Trollhättan, Sweden · 28–29 May</strong><br>
+  App: sern-ga2026.github.io/programmes/checkin.html · Secretariat: info@sern.eu
+</div>
+
+</body>
+</html>

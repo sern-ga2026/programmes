@@ -1,0 +1,2254 @@
+{
+  "meta": {
+    "event": "SERN General Assembly 2026",
+    "dates": "28-29 May 2026",
+    "venue": "Lilla NOVA Arena, Trollhättan",
+    "generated": "2026-05-18",
+    "version": "1.0"
+  },
+  "participants": [
+    {
+      "p": "P001",
+      "n": "Ann Uggla",
+      "i": "AU",
+      "o": "Coompanion Fyrbodal",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "GA"
+      ]
+    },
+    {
+      "p": "P002",
+      "n": "Nicola Catellani",
+      "i": "NC",
+      "o": "SERN",
+      "c": "IT",
+      "cat": 5,
+      "a": [
+        "SEM2",
+        "VISIT_TENG",
+        "EXBOARD",
+        "BUS_TOUR",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P003",
+      "n": "Sonia Geromino",
+      "i": "SG",
+      "o": "GAL L'Altra Romagna",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P004",
+      "n": "Isak Johansson",
+      "i": "IJ",
+      "o": "City of Trollhättan",
+      "c": "SE",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P005",
+      "n": "Daniel Stendahl",
+      "i": "DS",
+      "o": "Linköpings kommun",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P006",
+      "n": "Lotta Åberg",
+      "i": "LÅ",
+      "o": "Coompanion",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "GA"
+      ]
+    },
+    {
+      "p": "P007",
+      "n": "Linnea Jägestedt",
+      "i": "LJ",
+      "o": "Linköpings Kommun",
+      "c": "SE",
+      "cat": 3,
+      "a": [
+        "CHECKIN",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P008",
+      "n": "Cecilia Burenby",
+      "i": "CB",
+      "o": "Mjölby Municipality",
+      "c": "SE",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P009",
+      "n": "Luca Sparnacci",
+      "i": "LS",
+      "o": "UPI Emilia-Romagna",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P010",
+      "n": "Eva Rådander",
+      "i": "ER",
+      "o": "Mjölby kommun",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P011",
+      "n": "Susanna Radovanovic",
+      "i": "SR",
+      "o": "Kunskapsförbundet Väst",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P012",
+      "n": "Titti Andersson",
+      "i": "TA",
+      "o": "Fyrbodal kommunalförbund",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P013",
+      "n": "Joakim Svensson",
+      "i": "JS",
+      "o": "County Board Östergötland",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P014",
+      "n": "Ida Aronsson Hammar",
+      "i": "IH",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_SOC",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_SOC"
+      ]
+    },
+    {
+      "p": "P015",
+      "n": "Fredrik Topplund",
+      "i": "FT",
+      "o": "Motala kommun",
+      "c": "SE",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P016",
+      "n": "Elias Georges",
+      "i": "EG",
+      "o": "Motala kommun",
+      "c": "SE",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P017",
+      "n": "Jan Holmberg",
+      "i": "JH",
+      "o": "Motala kommun",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P018",
+      "n": "Saba Giovannacci",
+      "i": "SG",
+      "o": "Provincia di Parma",
+      "c": "IT",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P019",
+      "n": "Norberto Vignali",
+      "i": "NV",
+      "o": "Unione Pedemontana Parmense",
+      "c": "IT",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P020",
+      "n": "Centurio Frignani",
+      "i": "CF",
+      "o": "AICCRE E/R",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P021",
+      "n": "Catherine Stolfer Suneson",
+      "i": "CS",
+      "o": "Linköpings kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P022",
+      "n": "Federico Salgado",
+      "i": "FS",
+      "o": "Unione Pedemontana Parmense",
+      "c": "IT",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P023",
+      "n": "Giada Severi",
+      "i": "GS",
+      "o": "Comune di Meldola",
+      "c": "IT",
+      "cat": 3,
+      "a": [
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "GA"
+      ]
+    },
+    {
+      "p": "P024",
+      "n": "Sara Meyer",
+      "i": "SM",
+      "o": "Norrköpings kommun",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "CONTACT_MTG",
+        "GA",
+        "DINNER_FRI",
+        "LUNCH_FRI"
+      ]
+    },
+    {
+      "p": "P025",
+      "n": "Matilda Sofia Ricci",
+      "i": "MR",
+      "o": "SERN",
+      "c": "IT",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P026",
+      "n": "Anna Ekermo Tagesson",
+      "i": "AT",
+      "o": "County Board Östergötland",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P027",
+      "n": "Laura Avanzi",
+      "i": "LA",
+      "o": "SERN",
+      "c": "IT",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P028",
+      "n": "Irma Görtz",
+      "i": "IG",
+      "o": "Norrköpings Municipality",
+      "c": "SE",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P029",
+      "n": "Luca Sparnacci",
+      "i": "LS",
+      "o": "UPI Emilia-Romagna",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P030",
+      "n": "Luana Plessi",
+      "i": "LP",
+      "o": "UPI Emilia-Romagna",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P031",
+      "n": "Gabriele Agnetti",
+      "i": "GA",
+      "o": "City of Parma",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P032",
+      "n": "Annalisa Collina",
+      "i": "AC",
+      "o": "Casalecchio di Reno",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P033",
+      "n": "Concetta Bevacqua",
+      "i": "CB",
+      "o": "Casalecchio di Reno",
+      "c": "IT",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P034",
+      "n": "Giovanna Riefolo",
+      "i": "GR",
+      "o": "Casalecchio di Reno",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P035",
+      "n": "Giulia Celsa Naldi",
+      "i": "GN",
+      "o": "Casalecchio di Reno",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P036",
+      "n": "Silvia Ceccarelli",
+      "i": "SC",
+      "o": "Ravenna Municipality",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P037",
+      "n": "Ugo Giudice",
+      "i": "UG",
+      "o": "Province of Parma",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P038",
+      "n": "Barbara Usberti",
+      "i": "BU",
+      "o": "Province of Parma",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P039",
+      "n": "Andrea Ruffini",
+      "i": "AR",
+      "o": "Province of Parma",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P040",
+      "n": "Sofia Hjort",
+      "i": "SH",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "SCEN2_URB"
+      ]
+    },
+    {
+      "p": "P041",
+      "n": "Fredrik Bruhn",
+      "i": "FB",
+      "o": "Luleå municipality",
+      "c": "SE",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P042",
+      "n": "Johanna Berg Meneghini",
+      "i": "JM",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "VISIT_PTC",
+        "SCEN2_URB"
+      ]
+    },
+    {
+      "p": "P043",
+      "n": "Rasmus Landstrom",
+      "i": "RL",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_URB",
+        "VISIT_TENG",
+        "SCEN2_URB"
+      ]
+    },
+    {
+      "p": "P044",
+      "n": "Karola Svensson",
+      "i": "KS",
+      "o": "Falköpings kommun",
+      "c": "SE",
+      "cat": 3,
+      "a": [
+        "CHECKIN",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P045",
+      "n": "Gunilla Starräng",
+      "i": "GS",
+      "o": "FoU Östergötland",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P046",
+      "n": "Lara Nyström",
+      "i": "LN",
+      "o": "SERN Interpreter",
+      "c": "IT",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P047",
+      "n": "Federica Gravina",
+      "i": "FG",
+      "o": "SERN",
+      "c": "IT",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "LUNCH_THU",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P048",
+      "n": "Jenny Broberg Kudryk",
+      "i": "JB",
+      "o": "Fyrbodal kommunalförbund",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_SOC",
+        "SCEN2_SOC",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P049",
+      "n": "Saba Giovannacci",
+      "i": "SG",
+      "o": "Exec Board – Parma",
+      "c": "IT",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P050",
+      "n": "Johan Cavallini",
+      "i": "JC",
+      "o": "Svedest",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P051",
+      "n": "Sofe Sefaj",
+      "i": "SS",
+      "o": "Svedest",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P052",
+      "n": "Laura Avanzi",
+      "i": "LA",
+      "o": "SERN",
+      "c": "IT",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P053",
+      "n": "Barbara Monti",
+      "i": "BM",
+      "o": "Comune di Ravenna",
+      "c": "IT",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P054",
+      "n": "Claudia Canè",
+      "i": "CC",
+      "o": "Regione Emilia-Romagna",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI"
+      ]
+    },
+    {
+      "p": "P055",
+      "n": "Matteo Cavalieri",
+      "i": "MC",
+      "o": "Regione Emilia-Romagna",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_SOC",
+        "LUNCH_FRI"
+      ]
+    },
+    {
+      "p": "P056",
+      "n": "Ann-Mari Mäkikangas",
+      "i": "AM",
+      "o": "Halmstads kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P057",
+      "n": "Ivano Dinapoli",
+      "i": "ID",
+      "o": "Emiliambiente",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P058",
+      "n": "Lubiano Montaguti",
+      "i": "LM",
+      "o": "Scuola Edile Romagna",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P059",
+      "n": "Davide Nostrini",
+      "i": "DN",
+      "o": "Comune di Maranello",
+      "c": "IT",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P060",
+      "n": "Alexander Oskarsson",
+      "i": "AO",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P061",
+      "n": "Titti de vries",
+      "i": "TV",
+      "o": "City of Haarlem",
+      "c": "NL",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "GA"
+      ]
+    },
+    {
+      "p": "P063",
+      "n": "Niklas Bivald",
+      "i": "NB",
+      "o": "Trollhättan – Allie",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "SCEN2_SOC",
+        "LUNCH_FRI"
+      ]
+    },
+    {
+      "p": "P064",
+      "n": "Anders Fridén",
+      "i": "AF",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "EXBOARD",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P065",
+      "n": "Klara Wikman",
+      "i": "KW",
+      "o": "Motala municipality",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P066",
+      "n": "Anton Snibb",
+      "i": "AS",
+      "o": "Fyrbodal kommunalförbund",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "SCEN2_URB"
+      ]
+    },
+    {
+      "p": "P067",
+      "n": "Fredrik Carlsson",
+      "i": "FC",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "SCEN2_URB"
+      ]
+    },
+    {
+      "p": "P068",
+      "n": "Daniele Cristoforetti",
+      "i": "DC",
+      "o": "Unione Terre d'Argine",
+      "c": "IT",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P069",
+      "n": "Kerstin Hallenrud",
+      "i": "KH",
+      "o": "Coompanion",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "SCEN2_URB",
+        "LUNCH_FRI"
+      ]
+    },
+    {
+      "p": "P070",
+      "n": "Daniela Tebasti",
+      "i": "DT",
+      "o": "Unione Terre d'Argine",
+      "c": "IT",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P071",
+      "n": "Carina Krii",
+      "i": "CK",
+      "o": "Coompanion",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "LUNCH_THU",
+        "VISIT_TENG"
+      ]
+    },
+    {
+      "p": "P072",
+      "n": "Åsa Hedberg",
+      "i": "ÅH",
+      "o": "Norrköpings kommun",
+      "c": "SE",
+      "cat": 4,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "EXBOARD",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P073",
+      "n": "Stina Gjertsen",
+      "i": "SG",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "SCEN2_URB",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P074",
+      "n": "Markus Nyberg",
+      "i": "MN",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_SOC",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "SCEN2_SOC"
+      ]
+    },
+    {
+      "p": "P075",
+      "n": "Elisabeth Hansson",
+      "i": "EH",
+      "o": "Fyrbodal kommunalförbund",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "SCEN1_SOC",
+        "SCEN2_SOC",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P076",
+      "n": "Linnea Nilsson",
+      "i": "LN",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_TENG"
+      ]
+    },
+    {
+      "p": "P077",
+      "n": "Kolbrá Ingólfsdóttir",
+      "i": "KI",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P078",
+      "n": "Ann Dahlman",
+      "i": "AD",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_TENG"
+      ]
+    },
+    {
+      "p": "P079",
+      "n": "Christopher Holgersson",
+      "i": "CH",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_PTC"
+      ]
+    },
+    {
+      "p": "P080",
+      "n": "Ginevra Roli",
+      "i": "GR",
+      "o": "SERN",
+      "c": "IT",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P081",
+      "n": "Nanna Mikkelsen",
+      "i": "NM",
+      "o": "SERN",
+      "c": "SE",
+      "cat": 5,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM3",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P082",
+      "n": "Elisa Illica Magrini",
+      "i": "EI",
+      "o": "Comune di Fidenza",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P083",
+      "n": "Angelika Lungren Bielinski",
+      "i": "AL",
+      "o": "Trollhättan stad",
+      "c": "SE",
+      "cat": 3,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "EXBOARD",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P084",
+      "n": "Caterina Bagni",
+      "i": "CB",
+      "o": "Unione Terre d'Argine",
+      "c": "IT",
+      "cat": 1,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SECR",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P085",
+      "n": "Maria Ribbstedt",
+      "i": "MR",
+      "o": "Coompanion Skaraborg",
+      "c": "SE",
+      "cat": 6,
+      "a": [
+        "CHECKIN",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "EXBOARD",
+        "LUNCH_FRI",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P086",
+      "n": "Isabella Conti",
+      "i": "IC",
+      "o": "Emilia-Romagna Region",
+      "c": "IT",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_KLC",
+        "DINNER_THU",
+        "SCEN2_POL"
+      ]
+    },
+    {
+      "p": "P087",
+      "n": "Marianne Romi",
+      "i": "MR",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM1",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_TENG",
+        "SCEN2_POL"
+      ]
+    },
+    {
+      "p": "P088",
+      "n": "Björn Ohlén",
+      "i": "BÖ",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "SCEN2_URB",
+        "PAR_SHOW"
+      ]
+    },
+    {
+      "p": "P089",
+      "n": "Benny Augustsson",
+      "i": "BA",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 1,
+      "a": [
+        "CHECKIN",
+        "SEM3",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "BUS_TOUR",
+        "DINNER_THU",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "PAR_SHOW",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P090",
+      "n": "Beatrice Karlsson",
+      "i": "BK",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "SCEN2_URB",
+        "PAR_PROC"
+      ]
+    },
+    {
+      "p": "P091",
+      "n": "Peter Eriksson",
+      "i": "PE",
+      "o": "City of Trollhättan",
+      "c": "SE",
+      "cat": 1,
+      "a": [
+        "CHECKIN",
+        "SCEN1_POL",
+        "LUNCH_THU",
+        "EXBOARD",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "INSIKTEN",
+        "GA"
+      ]
+    },
+    {
+      "p": "P092",
+      "n": "Sofia Andersson Dharsani",
+      "i": "SD",
+      "o": "City of Trollhättan",
+      "c": "SE",
+      "cat": 1,
+      "a": [
+        "CHECKIN",
+        "SCEN1_POL",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "INSIKTEN",
+        "GA",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P093",
+      "n": "Louise Brodd",
+      "i": "LB",
+      "o": "City of Trollhättan",
+      "c": "SE",
+      "cat": 1,
+      "a": [
+        "CHECKIN",
+        "SCEN1_POL",
+        "SCEN2_POL",
+        "LUNCH_FRI",
+        "INSIKTEN",
+        "GA",
+        "LUNCH_THU"
+      ]
+    },
+    {
+      "p": "P094",
+      "n": "Marco Giorgi",
+      "i": "MG",
+      "o": "Comune di Ferrara",
+      "c": "IT",
+      "cat": 6,
+      "a": [
+        "DINNER_WED",
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "LUNCH_THU",
+        "VISIT_PTC",
+        "DINNER_THU",
+        "SCEN2_URB",
+        "LUNCH_FRI",
+        "PAR_PROC",
+        "INSIKTEN",
+        "GA",
+        "DINNER_FRI"
+      ]
+    },
+    {
+      "p": "P095",
+      "n": "Johan Åkesson",
+      "i": "JÅ",
+      "o": "Vänersborgs kommun",
+      "c": "SE",
+      "cat": 2,
+      "a": [
+        "CHECKIN",
+        "SEM2",
+        "SCEN1_URB",
+        "SCEN2_URB",
+        "LUNCH_THU"
+      ]
+    }
+  ],
+  "diet": {
+    "P006": "Gluten free, no scampi",
+    "P007": "Pescetarian",
+    "P008": "No mushroom, mayonnaise, rhubarb",
+    "P011": "No fish and seafood",
+    "P014": "No milk protein",
+    "P021": "Gluten & lactose intolerance",
+    "P023": "No cheese",
+    "P028": "Gluten free, no sugar",
+    "P040": "Does not attend meals",
+    "P042": "Lactose free",
+    "P045": "No gluten, no milk protein",
+    "P047": "Lactose free, no raw food",
+    "P050": "No hazelnuts",
+    "P051": "Pescetarian, no alcohol",
+    "P052": "No garlic, no banana",
+    "P054": "No beans, cabbage, cucumber, beets",
+    "P055": "No fish",
+    "P056": "Lactose free",
+    "P057": "No tuna",
+    "P063": "Lactose intolerance",
+    "P065": "No paprika",
+    "P069": "No red meat",
+    "P071": "Vegetarian",
+    "P085": "No fish",
+    "P091": "No nuts, no strawberries",
+    "P095": "No red paprika, no tomato"
+  },
+  "voters_confirmed": [
+    {
+      "org": "AICCRE Emilia-Romagna",
+      "country": "IT",
+      "votes": 1,
+      "pid": "P020",
+      "name": "Centurio Frignani"
+    },
+    {
+      "org": "Casalecchio di Reno",
+      "country": "IT",
+      "votes": 4,
+      "pid": "P033",
+      "name": "Concetta Bevacqua"
+    },
+    {
+      "org": "Emiliambiente",
+      "country": "IT",
+      "votes": 1,
+      "pid": "P057",
+      "name": "Ivano Dinapoli"
+    },
+    {
+      "org": "Fidenza Municipality",
+      "country": "IT",
+      "votes": 4,
+      "pid": "P082",
+      "name": "Elisa Illica Magrini"
+    },
+    {
+      "org": "GAL Altra Romagna",
+      "country": "IT",
+      "votes": 1,
+      "pid": "P003",
+      "name": "Sonia Geromino"
+    },
+    {
+      "org": "Meldola Municipality",
+      "country": "IT",
+      "votes": 3,
+      "pid": "P023",
+      "name": "Giada Severi"
+    },
+    {
+      "org": "Ravenna Municipality",
+      "country": "IT",
+      "votes": 5,
+      "pid": "P053",
+      "name": "Barbara Monti"
+    },
+    {
+      "org": "Unione Pedemontana Parmense",
+      "country": "IT",
+      "votes": 5,
+      "pid": "P022",
+      "name": "Federico Salgado"
+    },
+    {
+      "org": "Unione Terre d'Argine",
+      "country": "IT",
+      "votes": 5,
+      "pid": "P084",
+      "name": "Caterina Bagni"
+    },
+    {
+      "org": "CAB Östergötland",
+      "country": "SE",
+      "votes": 1,
+      "pid": "P026",
+      "name": "Anna Ekermo Tagesson"
+    },
+    {
+      "org": "Coompanion Fyrbodal",
+      "country": "SE",
+      "votes": 1,
+      "pid": "P001",
+      "name": "Ann Uggla"
+    },
+    {
+      "org": "Fyrbodal Kommunalförbund",
+      "country": "SE",
+      "votes": 5,
+      "pid": "P012",
+      "name": "Titti Andersson"
+    },
+    {
+      "org": "Kunskapsförbundet Väst",
+      "country": "SE",
+      "votes": 1,
+      "pid": "P011",
+      "name": "Susanna Radovanovic"
+    },
+    {
+      "org": "Linköping Municipality",
+      "country": "SE",
+      "votes": 5,
+      "pid": "P007",
+      "name": "Linnea Jägestedt"
+    },
+    {
+      "org": "Luleå Municipality",
+      "country": "SE",
+      "votes": 5,
+      "pid": "P041",
+      "name": "Fredrik Bruhn"
+    },
+    {
+      "org": "Trollhättan Municipality",
+      "country": "SE",
+      "votes": 5,
+      "pid": "P083",
+      "name": "Angelika Lungren Bielinski"
+    },
+    {
+      "org": "Vänersborg Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P089",
+      "name": "Benny Augustsson"
+    }
+  ],
+  "voters_pending": [
+    {
+      "org": "Province of Parma",
+      "country": "IT",
+      "votes": 8,
+      "pid": "P018",
+      "name": "Saba Giovannacci"
+    },
+    {
+      "org": "Parma Municipality",
+      "country": "IT",
+      "votes": 5,
+      "pid": "P031",
+      "name": "Gabriele Agnetti"
+    },
+    {
+      "org": "UPI Emilia-Romagna",
+      "country": "IT",
+      "votes": 1,
+      "pid": "P009",
+      "name": "Luca Sparnacci"
+    },
+    {
+      "org": "Falköping Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P044",
+      "name": "Karola Svensson"
+    },
+    {
+      "org": "Mjölby Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P008",
+      "name": "Cecilia Burenby"
+    },
+    {
+      "org": "Motala Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P015",
+      "name": "Fredrik Topplund"
+    },
+    {
+      "org": "Norrköping Municipality",
+      "country": "SE",
+      "votes": 5,
+      "pid": "P028",
+      "name": "Irma Görtz"
+    },
+    {
+      "org": "Svedest",
+      "country": "SE",
+      "votes": 1,
+      "pid": "P050",
+      "name": "Johan Cavallini"
+    }
+  ],
+  "orgs_absent_eligible": [
+    {
+      "org": "ASP Bolzano",
+      "country": "IT",
+      "votes": 1
+    },
+    {
+      "org": "Bertinoro Municipality",
+      "country": "IT",
+      "votes": 3
+    },
+    {
+      "org": "Bologna Municipality",
+      "country": "IT",
+      "votes": 5
+    },
+    {
+      "org": "Cavriago Municipality",
+      "country": "IT",
+      "votes": 3
+    },
+    {
+      "org": "Faenza Municipality",
+      "country": "IT",
+      "votes": 5
+    },
+    {
+      "org": "IIPLE",
+      "country": "IT",
+      "votes": 1
+    },
+    {
+      "org": "Imola Municipality",
+      "country": "IT",
+      "votes": 5
+    },
+    {
+      "org": "Liceo Marconi Parma",
+      "country": "IT",
+      "votes": 1
+    },
+    {
+      "org": "Ozzano Emilia Municipality",
+      "country": "IT",
+      "votes": 3
+    },
+    {
+      "org": "Pellegrino Parmense Municipality",
+      "country": "IT",
+      "votes": 3
+    },
+    {
+      "org": "San Lazzaro di Savena",
+      "country": "IT",
+      "votes": 4
+    },
+    {
+      "org": "Scandiano Municipality",
+      "country": "IT",
+      "votes": 4
+    },
+    {
+      "org": "Unione Comuni Val d'Enza",
+      "country": "IT",
+      "votes": 5
+    },
+    {
+      "org": "Unione Valli Taro e Ceno",
+      "country": "IT",
+      "votes": 4
+    },
+    {
+      "org": "Boden Municipality",
+      "country": "SE",
+      "votes": 4
+    },
+    {
+      "org": "Coompanion Östergötland",
+      "country": "SE",
+      "votes": 1
+    },
+    {
+      "org": "Coompanion Sjuhärad",
+      "country": "SE",
+      "votes": 1
+    },
+    {
+      "org": "Coompanion Skaraborg",
+      "country": "SE",
+      "votes": 1
+    },
+    {
+      "org": "Hushållningssällskapet Väst",
+      "country": "SE",
+      "votes": 1
+    },
+    {
+      "org": "Piteå Municipality",
+      "country": "SE",
+      "votes": 4
+    }
+  ],
+  "quorum": {
+    "base_fees": 115,
+    "threshold": 58
+  }
+}
