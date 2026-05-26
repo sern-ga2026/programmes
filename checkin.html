@@ -382,8 +382,8 @@ body{display:flex;flex-direction:column;align-items:center}
       <div class="admin-card" style="border-color:var(--red);background:var(--red-l)">
         <div class="admin-card-title" style="color:var(--red)">🗑 Reset check-in data</div>
         <div style="font-size:12px;color:var(--text2);margin-bottom:10px">
-          Cancella tutti i check-in registrati (utile dopo i test). 
-          Le deleghe e i votanti attivati <strong>non</strong> vengono cancellati.
+          Clears all recorded check-ins (useful after testing). 
+          Delegations and activated voters are <strong>not</strong> affected.
         </div>
         <div style="display:flex;gap:8px">
           <button onclick="resetReal()" class="cam-btn" 
@@ -482,7 +482,7 @@ let DIET_DATA = {};
 let VOTERS_CONFIRMED = [];
 let VOTERS_PENDING = [];
 let ORGS_ABSENT_ELIGIBLE = [];
-let QUORUM_BASE = 115;
+let QUORUM_BASE = 146; // updated from data.json
 const pidMap = {};
 
 async function loadData(){
@@ -519,7 +519,7 @@ function applyData(d){
   VOTERS_CONFIRMED     = d.voters_confirmed || [];
   VOTERS_PENDING       = d.voters_pending || [];
   ORGS_ABSENT_ELIGIBLE = d.orgs_absent_eligible || [];
-  if(d.quorum) QUORUM_BASE = d.quorum.base_fees || 115;
+  if(d.quorum) QUORUM_BASE = d.quorum.base_fees || 96;
   PARTICIPANTS.forEach(p => pidMap[p.p] = p);
 }
 
@@ -721,7 +721,7 @@ function resetDemo(){
   if(el) el.innerHTML='<span style="color:var(--grn)">✓ Check-in demo cancellati</span>';
 }
 function resetReal(){
-  if(!confirm('⚠️ Cancellare TUTTI i check-in REALI?\n\nFai questo solo durante i test, non durante l\'evento!')) return;
+  if(!confirm('⚠️ Delete ALL REAL check-ins?\n\nOnly do this during testing, never during the live event!')) return;
   if(!confirm('Are you sure? This cannot be undone.')) return;
   localStorage.removeItem('ga26_checkins');
   clearResult(); updateStats(); renderPresent(); renderMissing();
@@ -891,14 +891,14 @@ function selectParticipant(pid){
 // ═══════════════════════════════════════════════════════
 function showResult(pid){
   const p = pidMap[pid];
-  if(!p){document.getElementById('result-area').innerHTML='<div style="padding:12px;color:var(--red)">Partecipante non trovato: '+pid+'</div>';return;}
+  if(!p){document.getElementById('result-area').innerHTML='<div style="padding:12px;color:var(--red)">Participant not found: '+pid+'</div>';return;}
   const ci = getCheckins();
   const alreadyChecked = ci[pid]&&ci[pid][currentActivity];
   const isVoter = VOTERS_CONFIRMED.some(v=>v.pid===pid)||getActivated().includes(pid);
   const voterData = [...VOTERS_CONFIRMED,...VOTERS_PENDING].find(v=>v.pid===pid);
   const inActivity = currentActivity && p.a.includes(currentActivity);
   const [fg,bg] = CAT_COLORS[p.cat];
-  let warn = !currentActivity ? '<div style="padding:8px 12px;font-size:12px;color:var(--amb);background:var(--amb-l)">⚠️ No activity selected selezionata</div>' :
+  let warn = !currentActivity ? '<div style="padding:8px 12px;font-size:12px;color:var(--amb);background:var(--amb-l)">⚠️ No activity selected</div>' :
              !inActivity ? '<div style="padding:8px 12px;font-size:12px;color:var(--amb);background:var(--amb-l)">⚠️ Not assigned to this activity</div>' : '';
 
   // Diet info
@@ -1035,7 +1035,7 @@ async function toggleCamera(){
 
   // Check jsQR loaded
   if(typeof jsQR==='undefined'){
-    alert('Libreria QR non caricata. Controlla la connessione internet e ricarica.');
+    alert('QR library not loaded. Check your internet connection and reload the page.');
     btn.textContent='📷 Start QR camera'; btn.disabled=false; return;
   }
 
@@ -1055,8 +1055,8 @@ async function toggleCamera(){
   if(!gotStream){
     btn.textContent='📷 Start QR camera'; btn.disabled=false;
     const isHTTP=location.protocol==='http:';
-    if(isHTTP) alert('⚠️ La fotocamera richiede HTTPS.\nApri la pagina tramite https://');
-    else alert('📷 Fotocamera non disponibile.\n\nSe hai negato il permesso:\n1. Tocca il lucchetto 🔒 nella barra indirizzi\n2. Fotocamera → Consenti\n3. Ricarica la pagina');
+    if(isHTTP) alert('⚠️ Camera requires HTTPS.\nOpen the page via the GitHub Pages URL (https://).');
+    else alert('📷 Camera not available.\n\nIf you denied permission:\n1. Tap the 🔒 lock in the address bar\n2. Camera → Allow\n3. Reload the page');
     return;
   }
 
@@ -1071,7 +1071,7 @@ async function toggleCamera(){
     setTimeout(reject,8000); // 8s timeout
   }).catch(err=>{
     stopCamera();
-    alert('Errore avvio video: '+err);
+    alert('Video start error: '+err);
     return;
   });
 
@@ -1138,8 +1138,9 @@ function calcQuorum(){
     ...VOTERS_CONFIRMED,
     ...VOTERS_PENDING.filter(v=>activated.includes(v.pid))
   ];
-  // Statutory base = all fee-paid orgs (confirmed 115 + activated pending)
-  const baseFees = 115 + VOTERS_PENDING.filter(v=>activated.includes(v.pid)).reduce((s,v)=>s+v.votes,0);
+  // Statutory base = all fee-paid orgs (from data.json: confirmed present + absent eligible)
+  // QUORUM_BASE is set by loadData() / applyData() from data.json quorum.base_fees
+  const baseFees = QUORUM_BASE + VOTERS_PENDING.filter(v=>activated.includes(v.pid)).reduce((s,v)=>s+v.votes,0);
   const quorumThreshold = Math.floor(baseFees/2)+1;
 
   // Present votes = voter checked in to GA + delegations
@@ -1369,7 +1370,7 @@ function closeDelegModal(){document.getElementById('deleg-modal').classList.remo
 function saveDeleg(){
   const from=document.getElementById('deleg-from').value;
   const to=document.getElementById('deleg-to').value;
-  if(!from||!to){alert('Seleziona entrambi i campi');return;}
+  if(!from||!to){alert('Please select both fields');return;}
   const [fromOrg,votes]=from.split('|');
   const [toPid,toName]=to.split('|');
   const d=getDelegations();

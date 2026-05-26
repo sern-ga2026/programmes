@@ -3,8 +3,8 @@
     "event": "SERN General Assembly 2026",
     "dates": "28-29 May 2026",
     "venue": "Lilla NOVA Arena, Trollhättan",
-    "generated": "2026-05-25",
-    "version": "1.3"
+    "generated": "2026-05-26",
+    "version": "1.8"
   },
   "participants": [
     {
@@ -514,7 +514,7 @@
         "SCEN1_POL",
         "LUNCH_THU",
         "VISIT_KLC",
-        "DINNER_THU",
+        "EXBOARD",
         "SCEN2_POL",
         "LUNCH_FRI",
         "PAR_PROC",
@@ -747,23 +747,7 @@
       "o": "Comune di Casalecchio di Reno",
       "c": "IT",
       "cat": 2,
-      "a": [
-        "DINNER_WED",
-        "CHECKIN",
-        "OPENING",
-        "SEM2",
-        "SCEN1_URB",
-        "LUNCH_THU",
-        "VISIT_TENG",
-        "BUS_TOUR",
-        "DINNER_THU",
-        "SCEN2_URB",
-        "LUNCH_FRI",
-        "PAR_PROC",
-        "INSIKTEN",
-        "GA",
-        "DINNER_FRI"
-      ]
+      "a": []
     },
     {
       "p": "P035",
@@ -772,23 +756,7 @@
       "o": "Comune di Casalecchio di Reno",
       "c": "IT",
       "cat": 2,
-      "a": [
-        "DINNER_WED",
-        "CHECKIN",
-        "OPENING",
-        "SEM2",
-        "SCEN1_URB",
-        "LUNCH_THU",
-        "VISIT_KLC",
-        "BUS_TOUR",
-        "DINNER_THU",
-        "SCEN2_URB",
-        "LUNCH_FRI",
-        "PAR_PROC",
-        "INSIKTEN",
-        "GA",
-        "DINNER_FRI"
-      ]
+      "a": []
     },
     {
       "p": "P036",
@@ -2200,6 +2168,20 @@
       "name": "Giada Severi"
     },
     {
+      "org": "Parma Municipality",
+      "country": "IT",
+      "votes": 5,
+      "pid": "P031",
+      "name": "Gabriele Agnetti"
+    },
+    {
+      "org": "Province of Parma",
+      "country": "IT",
+      "votes": 8,
+      "pid": "P049",
+      "name": "Saba Giovannacci"
+    },
+    {
       "org": "Ravenna Municipality",
       "country": "IT",
       "votes": 5,
@@ -2221,6 +2203,13 @@
       "name": "Caterina Bagni"
     },
     {
+      "org": "Boden Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P097",
+      "name": "Lena Goldkuhl"
+    },
+    {
       "org": "CAB Östergötland",
       "country": "SE",
       "votes": 1,
@@ -2233,6 +2222,20 @@
       "votes": 1,
       "pid": "P001",
       "name": "Ann Uggla"
+    },
+    {
+      "org": "Coompanion Skaraborg",
+      "country": "SE",
+      "votes": 1,
+      "pid": "P085",
+      "name": "Maria Ribbstedt"
+    },
+    {
+      "org": "Falköping Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P044",
+      "name": "Karola Svensson"
     },
     {
       "org": "Fyrbodal Kommunalförbund",
@@ -2263,50 +2266,6 @@
       "name": "Fredrik Bruhn"
     },
     {
-      "org": "Trollhättan Municipality",
-      "country": "SE",
-      "votes": 5,
-      "pid": "P083",
-      "name": "Angelika Lungren Bielinski"
-    },
-    {
-      "org": "Vänersborg Municipality",
-      "country": "SE",
-      "votes": 4,
-      "pid": "P089",
-      "name": "Benny Augustsson"
-    }
-  ],
-  "voters_pending": [
-    {
-      "org": "Province of Parma",
-      "country": "IT",
-      "votes": 8,
-      "pid": "P018",
-      "name": "Saba Giovannacci"
-    },
-    {
-      "org": "Parma Municipality",
-      "country": "IT",
-      "votes": 5,
-      "pid": "P031",
-      "name": "Gabriele Agnetti"
-    },
-    {
-      "org": "UPI Emilia-Romagna",
-      "country": "IT",
-      "votes": 1,
-      "pid": "P009",
-      "name": "Luca Sparnacci"
-    },
-    {
-      "org": "Falköping Municipality",
-      "country": "SE",
-      "votes": 4,
-      "pid": "P044",
-      "name": "Karola Svensson"
-    },
-    {
       "org": "Mjölby Municipality",
       "country": "SE",
       "votes": 4,
@@ -2333,18 +2292,49 @@
       "votes": 1,
       "pid": "P050",
       "name": "Johan Cavallini"
+    },
+    {
+      "org": "Trollhättan Municipality",
+      "country": "SE",
+      "votes": 5,
+      "pid": "P083",
+      "name": "Angelika Lungren Bielinski"
+    },
+    {
+      "org": "Vänersborg Municipality",
+      "country": "SE",
+      "votes": 4,
+      "pid": "P089",
+      "name": "Benny Augustsson"
+    },
+    {
+      "org": "Coompanion Sjuhärad",
+      "country": "SE",
+      "votes": 1,
+      "pid": "P006",
+      "name": "Lotta Åberg"
+    }
+  ],
+  "voters_pending": [
+    {
+      "org": "UPI Emilia-Romagna",
+      "country": "IT",
+      "votes": 1,
+      "pid": "P030",
+      "name": "Luana Plessi"
     }
   ],
   "orgs_absent_eligible": [
     {
+      "org": "Bertinoro Municipality",
+      "country": "IT",
+      "votes": 3,
+      "note": "proxy → P023 Giada Severi"
+    },
+    {
       "org": "ASP Bolzano",
       "country": "IT",
       "votes": 1
-    },
-    {
-      "org": "Bertinoro Municipality",
-      "country": "IT",
-      "votes": 3
     },
     {
       "org": "Bologna Municipality",
@@ -2382,7 +2372,7 @@
       "votes": 3
     },
     {
-      "org": "Pellegrino Parmense Municipality",
+      "org": "Pellegrino Parmense",
       "country": "IT",
       "votes": 3
     },
@@ -2407,22 +2397,7 @@
       "votes": 4
     },
     {
-      "org": "Boden Municipality",
-      "country": "SE",
-      "votes": 4
-    },
-    {
       "org": "Coompanion Östergötland",
-      "country": "SE",
-      "votes": 1
-    },
-    {
-      "org": "Coompanion Sjuhärad",
-      "country": "SE",
-      "votes": 1
-    },
-    {
-      "org": "Coompanion Skaraborg",
       "country": "SE",
       "votes": 1
     },
@@ -2438,7 +2413,8 @@
     }
   ],
   "quorum": {
-    "base_fees": 115,
-    "threshold": 58
+    "base_fees": 146,
+    "threshold": 74,
+    "note": "Base=146 (confirmed 93 + absent 53). Quorum=74."
   }
 }
