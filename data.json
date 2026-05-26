@@ -4,7 +4,7 @@
     "dates": "28-29 May 2026",
     "venue": "Lilla NOVA Arena, Trollhättan",
     "generated": "2026-05-26",
-    "version": "1.8"
+    "version": "1.9"
   },
   "participants": [
     {
@@ -1043,8 +1043,8 @@
     },
     {
       "p": "P049",
-      "n": "Giovannacci Saba",
-      "i": "GS",
+      "n": "Saba Giovannacci",
+      "i": "SG",
       "o": "Provincia di Parma",
       "c": "IT",
       "cat": 1,
@@ -2213,8 +2213,8 @@
       "org": "CAB Östergötland",
       "country": "SE",
       "votes": 1,
-      "pid": "P026",
-      "name": "Anna Ekermo Tagesson"
+      "pid": "P013",
+      "name": "Joakim Svensson"
     },
     {
       "org": "Coompanion Fyrbodal",
