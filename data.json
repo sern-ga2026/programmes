@@ -3,14 +3,14 @@
     "event": "SERN General Assembly 2026",
     "dates": "28-29 May 2026",
     "venue": "Lilla NOVA Arena, Trollhättan",
-    "generated": "2026-05-26",
-    "version": "1.9"
+    "generated": "2026-05-28",
+    "version": "2.0"
   },
   "participants": [
     {
       "p": "P001",
-      "n": "Ann Uggla",
-      "i": "AU",
+      "n": "Marie Pettersson",
+      "i": "MP",
       "o": "Coompanion Fyrbodal",
       "c": "SE",
       "cat": 4,
@@ -2221,7 +2221,7 @@
       "country": "SE",
       "votes": 1,
       "pid": "P001",
-      "name": "Ann Uggla"
+      "name": "Marie Pettersson"
     },
     {
       "org": "Coompanion Skaraborg",
