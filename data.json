@@ -3,8 +3,8 @@
     "event": "SERN General Assembly 2026",
     "dates": "28-29 May 2026",
     "venue": "Lilla NOVA Arena, Trollhättan",
-    "generated": "2026-05-28",
-    "version": "2.0"
+    "generated": "2026-05-29",
+    "version": "2.1"
   },
   "participants": [
     {
@@ -172,8 +172,8 @@
     },
     {
       "p": "P008",
-      "n": "Cecilia Burenby",
-      "i": "CB",
+      "n": "Lars-Åke Pettersson",
+      "i": "LP",
       "o": "Mjölby Municipality",
       "c": "SE",
       "cat": 1,
@@ -2270,7 +2270,7 @@
       "country": "SE",
       "votes": 4,
       "pid": "P008",
-      "name": "Cecilia Burenby"
+      "name": "Lars-Åke Pettersson"
     },
     {
       "org": "Motala Municipality",
